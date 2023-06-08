@@ -1,0 +1,21 @@
+name: execute-postman-monitor
+description: 'Executes a postman monitor, and returns success or failure in the action outputs.'
+author: David Espí Hernández <davidespi@postman.com>
+branding:
+  icon: arrow-up-circle
+  color: blue
+inputs:
+  postman-api-key:
+    description: 'Postman API Key'
+    required: true
+    default: ''
+  monitor-id:
+    description: 'Postman monitor ID'
+    required: true
+    default: 'String'
+outputs:
+  result:
+    description: 'success or failed'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
