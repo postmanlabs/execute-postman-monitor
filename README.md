@@ -1,5 +1,7 @@
 # execute-postman-monitor
 
+This code is part of a blog post, and it is not maintained actively by Postman.
+
 Executes an existing Postman monitor, given its id.
 
 
