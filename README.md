@@ -1,12 +1,17 @@
 # execute-postman-monitor
 
-This code is part of a blog post, and it is not maintained actively by Postman.
+> This code is part of a blog post and is **not** actively maintained by Postman.
 
-Executes an existing Postman monitor, given its id.
+Runs an existing Postman monitor by its ID.
 
+You will need to add the following values to your repository:
+
+- The `MONITOR_ID` environment variable that contains the monitor's ID.
+- The `POSTMAN_API_KEY` secret that contains your valid Postman API key. The API key requires admin permissions.
 
 ## Usage
-Example of trigger on pull request.
+
+The following is an example of a pull request trigger:
 
 ```yaml
 name: Execute Postman Monitor
@@ -24,14 +29,10 @@ jobs:
           monitor-id: ${{ vars.MONITOR_ID }}
 ```
 
-For the previous example to work you need to define:
-- An environment variable `MONITOR_ID` containing the monitor id to be executed.
-- A secret called `POSTMAN_API_KEY` containing the Postman API key with admin permission on the monitor that is going to be executed.
+The GitHub action will set a status output variable that contains the monitor run's results. The results will return either a `success` or `failed` status.
 
-The action sets a `status` output variable with the monitor execution result, which will contain either `success` or `failed`.
-The monitor execution is synchronous, take this into account as it can take several seconds, depending on the executed collection.
+The monitor run is synchronous. It can take several seconds, depending on the executed collection.
 
 ## License
 
 MIT
-
